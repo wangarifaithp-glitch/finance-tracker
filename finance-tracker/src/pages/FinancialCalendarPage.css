@@ -1,0 +1,1023 @@
+.financial-calendar-page {
+  display: grid;
+  gap: 19px;
+}
+
+.financial-calendar-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.financial-calendar-heading .eyebrow {
+  margin: 0 0 7px;
+}
+
+.financial-calendar-heading h1 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(29px, 4vw, 38px);
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.financial-calendar-heading > div > p:last-child {
+  margin: 7px 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.calendar-create-button {
+  flex: 0 0 auto;
+}
+
+.calendar-welcome-card {
+  position: relative;
+  display: flex;
+  min-height: 128px;
+  align-items: center;
+  gap: 18px;
+  overflow: hidden;
+  padding: 22px clamp(20px, 3.5vw, 34px);
+  border: 1px solid #e8dfee;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 86% 16%, rgb(255 255 255 / 84%), transparent 26%),
+    linear-gradient(112deg, #f8eeeb 0%, #f0eafa 57%, #e8f3ec 100%);
+  box-shadow: 0 8px 25px rgb(77 42 61 / 4%);
+}
+
+.calendar-welcome-mark {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: 18px;
+  color: #71499a;
+  background: linear-gradient(145deg, #fff, #eee5f7);
+  box-shadow: 0 8px 18px rgb(77 42 61 / 8%);
+  transform: rotate(-5deg);
+}
+
+.calendar-welcome-card > div {
+  position: relative;
+  z-index: 1;
+}
+
+.calendar-welcome-card > div > p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 7px;
+  color: #795494;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.calendar-welcome-card h2 {
+  margin: 0 0 6px;
+  color: #3a2845;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 26px);
+  letter-spacing: -0.5px;
+}
+
+.calendar-welcome-card > div > span {
+  color: #716278;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.calendar-welcome-decoration {
+  position: absolute;
+  right: 7%;
+  bottom: -34px;
+  color: rgb(126 89 153 / 12%);
+  font-size: 135px;
+  line-height: 1;
+  transform: rotate(12deg);
+}
+
+.financial-calendar-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(245px, 300px);
+  align-items: start;
+  gap: 16px;
+}
+
+.financial-calendar-main,
+.upcoming-calendar-sidebar {
+  display: grid;
+  min-width: 0;
+  gap: 15px;
+}
+
+.financial-month-card,
+.selected-day-panel,
+.upcoming-bills-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #eee4eb;
+  border-radius: 17px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 7px 20px rgb(77 42 61 / 4%);
+}
+
+.financial-month-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.financial-month-heading .eyebrow {
+  margin: 0 0 4px;
+  font-size: 8px;
+}
+
+.financial-month-heading h2 {
+  margin: 0;
+  color: #382944;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: -0.35px;
+}
+
+.financial-calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.calendar-view-switch {
+  display: flex;
+  gap: 2px;
+  margin-right: 4px;
+  padding: 3px;
+  border: 1px solid #eee5ee;
+  border-radius: 9px;
+  background: #faf7fa;
+}
+
+.calendar-view-switch button {
+  min-height: 26px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 6px;
+  color: #827588;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.calendar-view-switch button.is-active {
+  color: #663b8e;
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(56 41 68 / 9%);
+}
+
+.financial-calendar-arrow,
+.calendar-today-button {
+  display: grid;
+  min-width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid #eee5ee;
+  border-radius: 8px;
+  color: #76667b;
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.financial-calendar-arrow:hover,
+.calendar-today-button:hover {
+  color: #6d36a8;
+  background: #f5eff9;
+}
+
+.calendar-today-button {
+  min-width: 43px;
+  padding: 0 8px;
+  color: #70468f;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.financial-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  overflow: hidden;
+  border-top: 1px solid #eee7ed;
+  border-left: 1px solid #eee7ed;
+  border-radius: 11px;
+}
+
+.financial-calendar-weekday {
+  display: grid;
+  min-height: 30px;
+  place-items: center;
+  border-right: 1px solid #eee7ed;
+  border-bottom: 1px solid #eee7ed;
+  color: #96899a;
+  background: #fbf8fb;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.financial-calendar-day {
+  display: flex;
+  min-width: 0;
+  min-height: 86px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 7px 6px;
+  border: 0;
+  border-right: 1px solid #eee7ed;
+  border-bottom: 1px solid #eee7ed;
+  color: #5e5064;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 130ms ease, box-shadow 130ms ease;
+}
+
+.financial-calendar-day:hover {
+  z-index: 1;
+  background: #fbf7fc;
+  box-shadow: inset 0 0 0 1px #e1d2eb;
+}
+
+.financial-calendar-day.is-outside-month {
+  color: #b7abb8;
+  background: #fdfbfd;
+}
+
+.financial-calendar-day.is-today:not(.is-selected) {
+  background: #fffcf6;
+}
+
+.financial-calendar-day.is-selected {
+  position: relative;
+  z-index: 1;
+  background: #faf5fc;
+  box-shadow: inset 0 0 0 2px #8e63ac;
+}
+
+.financial-day-number {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border-radius: 8px;
+  color: #5f5065;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.financial-calendar-day.is-today .financial-day-number {
+  color: #875a34;
+  background: #faefd9;
+}
+
+.financial-calendar-day.is-selected .financial-day-number {
+  color: #fff;
+  background: #75499d;
+}
+
+.financial-day-events {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.financial-day-event {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  padding: 3px 4px;
+  border-radius: 4px;
+  color: var(--calendar-accent);
+  background: var(--calendar-tint);
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.financial-day-event span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.financial-day-events small {
+  color: #8d7f91;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.financial-calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 13px;
+}
+
+.financial-calendar-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #87798c;
+  font-size: 8px;
+}
+
+.financial-calendar-legend > span i {
+  width: 7px;
+  height: 7px;
+  border-radius: 3px;
+  background: var(--calendar-accent);
+}
+
+.calendar-type-bill {
+  --calendar-accent: #bb5267;
+  --calendar-tint: #fbecef;
+}
+
+.calendar-type-rent {
+  --calendar-accent: #7550a4;
+  --calendar-tint: #f0eafb;
+}
+
+.calendar-type-payday {
+  --calendar-accent: #278263;
+  --calendar-tint: #e6f4ed;
+}
+
+.calendar-type-subscription {
+  --calendar-accent: #ba7b2c;
+  --calendar-tint: #fbf1df;
+}
+
+.calendar-type-loan_payment {
+  --calendar-accent: #447a9f;
+  --calendar-tint: #eaf3f8;
+}
+
+.calendar-type-savings_contribution {
+  --calendar-accent: #368b6c;
+  --calendar-tint: #e8f5ed;
+}
+
+.calendar-type-recurring_expense {
+  --calendar-accent: #c06f49;
+  --calendar-tint: #f9eee8;
+}
+
+.calendar-type-reminder {
+  --calendar-accent: #865f91;
+  --calendar-tint: #f3edf6;
+}
+
+.calendar-refreshing {
+  margin: 8px 0 0;
+  color: #826b90;
+  font-size: 9px;
+}
+
+.selected-day-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.selected-day-heading .eyebrow {
+  margin: 0 0 4px;
+  font-size: 8px;
+}
+
+.selected-day-heading h2 {
+  margin: 0;
+  color: #382944;
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+.selected-day-heading > div > p:last-child {
+  margin: 4px 0 0;
+  color: #938597;
+  font-size: 9px;
+}
+
+.selected-day-add-button {
+  min-height: 33px;
+  gap: 5px;
+  padding: 0 9px;
+  font-size: 9px;
+}
+
+.calendar-event-list,
+.upcoming-event-list {
+  display: grid;
+  gap: 9px;
+}
+
+.calendar-event-card {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #f0e8ed;
+  border-left: 3px solid var(--calendar-accent);
+  border-radius: 12px;
+  background:
+    linear-gradient(110deg, var(--calendar-tint), #fffefd 78%);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.calendar-event-card:hover {
+  box-shadow: 0 6px 15px rgb(77 42 61 / 5%);
+}
+
+.calendar-event-card.is-paid {
+  background: linear-gradient(110deg, #f4fbf6, #fffefd);
+}
+
+.calendar-event-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--calendar-accent);
+  background: var(--calendar-tint);
+}
+
+.calendar-event-copy {
+  min-width: 0;
+}
+
+.calendar-event-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.calendar-event-title-row > div:first-child {
+  min-width: 0;
+}
+
+.calendar-event-date {
+  margin: 0 0 3px;
+  color: #95879a;
+  font-size: 8px;
+  font-weight: 650;
+}
+
+.calendar-event-title-row h3 {
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: #44334d;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: -0.15px;
+}
+
+.calendar-event-side {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.calendar-event-amount {
+  color: #44334d;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.calendar-paid-badge {
+  padding: 3px 6px;
+  border: 1px solid #cfe7d7;
+  border-radius: 999px;
+  color: #397454;
+  background: #edf7ee;
+  font-size: 7px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.calendar-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin-top: 6px;
+  color: #8c7d91;
+  font-size: 8px;
+}
+
+.calendar-event-type-label {
+  color: var(--calendar-accent);
+  font-weight: 750;
+}
+
+.calendar-event-notes {
+  margin: 7px 0 0;
+  color: #766b7d;
+  font-size: 9px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.calendar-event-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.calendar-complete-button {
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid #d6eadd;
+  border-radius: 8px;
+  color: #34815c;
+  background: #f1f8f2;
+  cursor: pointer;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.calendar-complete-button:hover:not(:disabled),
+.calendar-complete-button.is-completed {
+  border-color: #bcdcc6;
+  background: #e7f4e9;
+}
+
+.calendar-complete-button:disabled {
+  cursor: progress;
+  opacity: 0.65;
+}
+
+.calendar-management-actions {
+  display: flex;
+  gap: 3px;
+}
+
+.calendar-action-button {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #83758a;
+  background: transparent;
+  cursor: pointer;
+}
+
+.calendar-action-button:hover {
+  color: #6d36a8;
+  background: #f4edf8;
+}
+
+.calendar-action-button.calendar-delete-button:hover {
+  color: #c14c63;
+  background: #fff0f2;
+}
+
+.calendar-event-error {
+  margin: 7px 0 0;
+  color: #b23953;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.calendar-event-card.is-compact {
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 7px;
+  padding: 9px;
+  border-radius: 10px;
+  background-color: #fffefd;
+}
+
+.calendar-event-card.is-compact .calendar-event-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.calendar-event-card.is-compact .calendar-event-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.calendar-event-card.is-compact .calendar-event-date {
+  font-size: 7px;
+}
+
+.calendar-event-card.is-compact .calendar-event-title-row h3 {
+  font-size: 10px;
+}
+
+.calendar-event-card.is-compact .calendar-event-amount {
+  font-size: 9px;
+}
+
+.calendar-event-card.is-compact .calendar-event-meta {
+  margin-top: 4px;
+  font-size: 7px;
+}
+
+.calendar-event-card.is-compact .calendar-event-actions {
+  margin-top: 5px;
+}
+
+.calendar-event-card.is-compact .calendar-complete-button {
+  min-height: 25px;
+  padding: 0 7px;
+  font-size: 7px;
+}
+
+.upcoming-bills-card {
+  display: grid;
+  gap: 11px;
+  padding: 16px;
+}
+
+.upcoming-bills-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 2px;
+}
+
+.upcoming-bills-heading > span {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+  place-items: center;
+  border-radius: 12px;
+  color: #74499d;
+  background: #f1e9f7;
+}
+
+.upcoming-bills-heading .eyebrow {
+  margin: 0 0 3px;
+  font-size: 8px;
+}
+
+.upcoming-bills-heading h2 {
+  margin: 0;
+  color: #3f3048;
+  font-family: var(--font-display);
+  font-size: 17px;
+}
+
+.upcoming-bills-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid #eee2ee;
+  border-radius: 10px;
+  color: #7d6a86;
+  background: #fbf7fc;
+  font-size: 8px;
+}
+
+.upcoming-bills-summary strong {
+  color: #4a3654;
+  font-size: 10px;
+}
+
+.upcoming-empty-state {
+  display: grid;
+  min-height: 75px;
+  place-items: center;
+  padding: 13px;
+  border: 1px dashed #e2d7e4;
+  border-radius: 11px;
+  color: #8b7e90;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.upcoming-empty-state p {
+  margin: 0;
+}
+
+.upcoming-more-note {
+  margin: 0;
+  color: #897b8e;
+  font-size: 8px;
+  text-align: center;
+}
+
+.calendar-reminder-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ece1ef;
+  border-radius: 12px;
+  color: #725b80;
+  background: linear-gradient(115deg, #faf5fc, #f6f7f1);
+}
+
+.calendar-reminder-note svg {
+  flex: 0 0 auto;
+  color: #9872ae;
+}
+
+.calendar-reminder-note p {
+  margin: 0;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.calendar-empty-state {
+  display: grid;
+  min-height: 150px;
+  justify-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 22px;
+  border: 1px dashed #ded1e2;
+  border-radius: 14px;
+  color: #756777;
+  background: rgb(255 255 255 / 55%);
+  text-align: center;
+}
+
+.calendar-empty-state > span {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 2px;
+  place-items: center;
+  border-radius: 14px;
+  color: #7948b2;
+  background: #eee3f7;
+}
+
+.calendar-empty-state h3 {
+  margin: 0;
+  color: #45344f;
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+
+.calendar-empty-state p {
+  max-width: 340px;
+  margin: 0 0 3px;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.calendar-form-intro {
+  margin: 0 0 15px;
+  color: #807286;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.calendar-event-form textarea {
+  min-height: 76px;
+}
+
+.calendar-delete-content footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid #f0e5e9;
+}
+
+.calendar-retry-button {
+  margin-left: 7px;
+  padding: 2px 5px;
+  border: 0;
+  color: #7136bd;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 750;
+  text-decoration: underline;
+}
+
+@media (max-width: 1120px) {
+  .financial-calendar-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 260px);
+    gap: 12px;
+  }
+
+  .financial-month-card,
+  .selected-day-panel {
+    padding: 14px;
+  }
+
+  .financial-calendar-day {
+    min-height: 78px;
+    padding: 5px 4px;
+  }
+}
+
+@media (max-width: 880px) {
+  .financial-calendar-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .upcoming-calendar-sidebar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 580px) {
+  .financial-calendar-page {
+    gap: 14px;
+  }
+
+  .financial-calendar-heading {
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .financial-calendar-heading > div > p:last-child {
+    max-width: 230px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .calendar-create-button {
+    min-height: 36px;
+    gap: 5px;
+    padding: 0 9px;
+    font-size: 9px;
+  }
+
+  .calendar-welcome-card {
+    min-height: 112px;
+    gap: 11px;
+    padding: 16px 13px;
+  }
+
+  .calendar-welcome-mark {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    border-radius: 14px;
+  }
+
+  .calendar-welcome-card h2 {
+    font-size: 18px;
+  }
+
+  .calendar-welcome-card > div > span {
+    font-size: 9px;
+  }
+
+  .financial-month-card,
+  .selected-day-panel {
+    padding: 11px;
+  }
+
+  .financial-month-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 11px;
+  }
+
+  .financial-month-heading h2 {
+    font-size: 18px;
+  }
+
+  .financial-calendar-controls {
+    width: 100%;
+  }
+
+  .calendar-view-switch {
+    margin-right: auto;
+  }
+
+  .financial-calendar-day {
+    min-height: 63px;
+    gap: 2px;
+    padding: 4px 2px;
+  }
+
+  .financial-day-number {
+    width: 19px;
+    height: 19px;
+    flex-basis: 19px;
+    font-size: 8px;
+  }
+
+  .financial-day-event {
+    height: 5px;
+    padding: 0;
+    border-radius: 5px;
+    font-size: 0;
+  }
+
+  .financial-day-event span {
+    display: none;
+  }
+
+  .financial-day-events {
+    grid-template-columns: repeat(3, 5px);
+    gap: 2px;
+    justify-content: center;
+  }
+
+  .financial-day-events small {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .financial-calendar-legend {
+    gap: 7px 9px;
+  }
+
+  .financial-calendar-legend > span {
+    font-size: 7px;
+  }
+
+  .selected-day-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .upcoming-calendar-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calendar-event-card {
+    grid-template-columns: 29px minmax(0, 1fr);
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .calendar-event-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .financial-calendar-grid.is-week-view .financial-calendar-day {
+    min-height: 130px;
+  }
+
+  .financial-calendar-grid.is-week-view .financial-day-event {
+    height: auto;
+    padding: 3px;
+    font-size: 7px;
+  }
+
+  .financial-calendar-grid.is-week-view .financial-day-event span {
+    display: inline;
+  }
+
+  .financial-calendar-grid.is-week-view .financial-day-events {
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .financial-calendar-arrow,
+  .calendar-today-button,
+  .financial-calendar-day,
+  .calendar-complete-button {
+    transition: none;
+  }
+}

@@ -1,0 +1,139 @@
+.auth-page {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 22px;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgb(248 214 200 / 22%), transparent 35%),
+    var(--color-cream);
+}
+
+.auth-card {
+  display: grid;
+  width: min(100%, 430px);
+  gap: 12px;
+  padding: clamp(23px, 6vw, 36px);
+  border: 1px solid #eddfdf;
+  border-radius: 22px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 16px 42px rgb(77 42 61 / 8%);
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #7136bd;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-card > .eyebrow {
+  margin: 0;
+}
+
+.auth-card h1 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 7vw, 35px);
+}
+
+.auth-description {
+  margin: 0 0 8px;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auth-form,
+.auth-form label {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-form label {
+  gap: 6px;
+  color: #65566a;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 11px;
+  border: 1px solid #e8dfe6;
+  border-radius: 10px;
+  color: var(--color-ink);
+  background: #fffdfb;
+  font: inherit;
+  font-size: 12px;
+}
+
+.auth-form input:focus {
+  border-color: #b892e4;
+  outline: 3px solid rgb(124 58 237 / 10%);
+}
+
+.auth-form .primary-button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.auth-mode-toggle {
+  padding: 8px;
+  border: 0;
+  color: #6f38b7;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.auth-error,
+.auth-success,
+.auth-demo-notice {
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #efd6d9;
+  border-radius: 10px;
+  color: #93475a;
+  background: #fff0f1;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.auth-success {
+  border-color: #d3ebdb;
+  color: #386e50;
+  background: #edf7ee;
+}
+
+.auth-demo-notice {
+  display: grid;
+  gap: 12px;
+  border-color: #e6d9ed;
+  color: #604276;
+  background: #f8f2fb;
+}
+
+.auth-demo-notice p {
+  margin: 0;
+}
+
+.auth-demo-notice .primary-button {
+  justify-self: start;
+}
+
+@media (max-width: 420px) {
+  .auth-page {
+    padding: 13px;
+  }
+}

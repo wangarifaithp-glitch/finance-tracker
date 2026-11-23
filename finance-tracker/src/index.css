@@ -1,0 +1,101 @@
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia,
+    serif;
+  --color-cream: #fff7f2;
+  --color-plum: #351c3d;
+  --color-purple: #7c3aed;
+  --color-lavender: #e9ddfb;
+  --color-peach: #f8d6c8;
+  --color-blush: #f8e4eb;
+  --color-gold: #d6a85a;
+  --color-ink: #30243a;
+  --color-muted: #746675;
+  --shadow-subtle: 0 8px 24px rgb(77 42 61 / 5%);
+  --shadow-raised: 0 14px 34px rgb(77 42 61 / 10%);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--color-cream);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgb(248 214 200 / 17%), transparent 33%),
+    var(--color-cream);
+}
+
+body {
+  letter-spacing: -0.01em;
+}
+
+button,
+a,
+input,
+select {
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+input::placeholder {
+  color: #9b8e99;
+}
+
+input,
+select {
+  text-rendering: inherit;
+}
+
+body,
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button,
+a,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgb(124 58 237 / 55%);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--color-plum);
+  background: var(--color-lavender);
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
