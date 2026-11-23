@@ -165,7 +165,14 @@ function AuthPage() {
       else if (mode === 'reset-password') {
         setSuccessMessage('Password updated successfully.')
         window.setTimeout(() => navigate('/', { replace: true }), 800)
-      } else if (mode === 'sign-up' && !result.data.session) setSuccessMessage('Check your email to confirm your account, then sign in.')
+      } else if (mode === 'sign-up' && !result.data.session) {
+        const loginResult = await signIn(email.trim(), password)
+        if (loginResult.error) {
+          setErrorMessage('Account created. Please sign in to continue.')
+        } else {
+          navigate('/', { replace: true })
+        }
+      }
       else navigate('/', { replace: true })
     } catch (error) {
       console.error('Unable to complete Finance Tracker authentication.', error)
