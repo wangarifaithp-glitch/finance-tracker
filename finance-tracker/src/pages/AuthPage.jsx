@@ -104,6 +104,7 @@ function AuthPage() {
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [oauthProvider, setOauthProvider] = useState('')
 
   useEffect(() => {
     if (user && !isResetRoute) navigate('/', { replace: true })
@@ -129,6 +130,10 @@ function AuthPage() {
     try {
       if (mode === 'sign-up' && !fullName.trim()) {
         setErrorMessage('Enter your full name.')
+        return
+      }
+      if (mode === 'sign-up' && password !== confirmPassword) {
+        setErrorMessage('Passwords do not match.')
         return
       }
       if (mode === 'reset-password' && password !== confirmPassword) {
@@ -173,12 +178,17 @@ function AuthPage() {
   async function handleOAuth(provider) {
     setErrorMessage('')
     setSuccessMessage('')
+    setOauthProvider(provider)
     if (isDemoMode) {
       setErrorMessage('Google and Apple sign-in require Supabase configuration.')
+      setOauthProvider('')
       return
     }
     const { error } = await signInWithOAuth(provider)
-    if (error) setErrorMessage(error.message)
+    if (error) {
+      setErrorMessage(error.message)
+      setOauthProvider('')
+    }
   }
 
   const heading =
@@ -296,6 +306,24 @@ function AuthPage() {
                   </label>
                 )}
 
+                {mode === 'sign-up' && (
+                  <label className="auth-field">
+                    <span>Confirm Password</span>
+                    <div>
+                      <LockKeyhole aria-hidden="true" size={15} />
+                      <input
+                        autoComplete="new-password"
+                        minLength={8}
+                        onChange={(event) => setConfirmPassword(event.target.value)}
+                        placeholder="••••••••"
+                        required
+                        type={showPassword ? 'text' : 'password'}
+                        value={confirmPassword}
+                      />
+                    </div>
+                  </label>
+                )}
+
                 {mode === 'reset-password' && (
                   <label className="auth-field">
                     <span>Confirm Password</span>
@@ -346,13 +374,15 @@ function AuthPage() {
                 {mode === 'sign-in' && (
                   <>
                     <div className="auth-divider"><span>Or</span></div>
-                    <button className="auth-social-button" onClick={() => handleOAuth('google')} type="button">
+                    <button className="auth-social-button" disabled={Boolean(oauthProvider)} onClick={() => handleOAuth('google')} type="button">
                       <span className="google-mark">G</span>
-                      Continue with Google
+                      {oauthProvider === 'google' ? 'Connecting to Google...' : 'Continue with Google'}
                     </button>
-                    <button className="auth-social-button" onClick={() => handleOAuth('apple')} type="button">
-                      <span className="apple-mark">●</span>
-                      Continue with Apple
+                    <button className="auth-social-button" disabled={Boolean(oauthProvider)} onClick={() => handleOAuth('apple')} type="button">
+                      <svg aria-hidden="true" className="apple-mark" viewBox="0 0 24 24">
+                        <path d="M16.7 12.9c0-3 2.5-4.4 2.6-4.5-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1.1-2.1 0-4.1 1.2-5.2 3.2-2.2 3.8-.6 9.5 1.6 12.6 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1s2.5 1 4.2 1c1.7 0 2.8-1.5 3.8-3.1 1.2-1.7 1.7-3.4 1.7-3.5-.1-.1-3.7-1.4-3.7-5.4zM13.6 3.9c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.8.9-3.7 1.9-.8.9-1.5 2.5-1.3 3.9 1.4.1 2.8-.7 3.7-1.7z" fill="currentColor" />
+                      </svg>
+                      {oauthProvider === 'apple' ? 'Connecting to Apple...' : 'Continue with Apple'}
                     </button>
                   </>
                 )}

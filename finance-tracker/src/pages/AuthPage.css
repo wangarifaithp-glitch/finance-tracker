@@ -12,7 +12,7 @@
 .auth-frame {
   display: grid;
   width: min(100%, 1180px);
-  min-height: 660px;
+  min-height: 700px;
   grid-template-rows: 62px minmax(0, 1fr) 48px;
   overflow: hidden;
   border: 1px solid #1a2b56;
@@ -272,6 +272,11 @@
   background: #1d2d55;
 }
 
+.auth-social-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 .google-mark {
   display: grid;
   width: 16px;
@@ -285,8 +290,9 @@
 }
 
 .apple-mark {
+  width: 16px;
+  height: 16px;
   color: #eef4ff;
-  font-size: 13px;
 }
 
 .auth-back-link {
