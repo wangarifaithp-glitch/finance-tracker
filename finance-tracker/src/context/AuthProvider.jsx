@@ -50,15 +50,29 @@ export function AuthProvider({ children }) {
     return { data, error }
   }, [])
 
-  const signUp = useCallback(async (email, password) => {
+  const signUp = useCallback(async (email, password, metadata = {}) => {
     if (!supabase) return { error: new Error('Supabase is not configured.') }
-    const { data, error } = await supabase.auth.signUp({ email, password })
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: metadata },
+    })
     return { data, error }
   }, [])
 
   const signOut = useCallback(async () => {
     if (!supabase) return { error: new Error('Supabase is not configured.') }
     return supabase.auth.signOut()
+  }, [])
+
+  const signInWithOAuth = useCallback(async (provider) => {
+    if (!supabase) return { error: new Error('Supabase is not configured.') }
+    return supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${window.location.origin}/`,
+      },
+    })
   }, [])
 
   const resetPasswordForEmail = useCallback(async (email) => {
@@ -92,6 +106,7 @@ export function AuthProvider({ children }) {
       session,
       sessionError,
       signIn,
+      signInWithOAuth,
       signOut,
       signUp,
       resetPasswordForEmail,
@@ -99,7 +114,18 @@ export function AuthProvider({ children }) {
       updateProfile,
       user: session?.user || null,
     }),
-    [isLoading, session, sessionError, signIn, signOut, signUp, resetPasswordForEmail, updatePassword, updateProfile],
+    [
+      isLoading,
+      session,
+      sessionError,
+      signIn,
+      signInWithOAuth,
+      signOut,
+      signUp,
+      resetPasswordForEmail,
+      updatePassword,
+      updateProfile,
+    ],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
